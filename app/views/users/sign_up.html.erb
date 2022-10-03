@@ -1,0 +1,29 @@
+<h2>註冊<h2>
+
+<% if @user.errors.any? %>
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %><li>
+    <% end %>
+  </ul>
+<% end %>      
+
+<%= form_with model: @user do |user| %>
+  <div>
+    <%= user.label :email ,"email" %>
+    <%= user.email_field :email %>
+  </div> 
+
+  <div>
+    <%= user.label :password ,"password" %>
+    <%= user.password_field :password %>
+  </div> 
+
+  <div>
+    <%= user.label :password_confirmation , "password_confirmation" %>
+    <%= user.password_field :password_confirmation %>
+  </div>  
+
+  <%= user.submit %>
+
+<% end %>
