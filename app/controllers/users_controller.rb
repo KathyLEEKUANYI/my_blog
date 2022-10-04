@@ -5,10 +5,16 @@ class UsersController < ApplicationController
     end    
 
 
+    def sign_in
+      @user = User.new
+    end  
+
+
     def create
       @user = User.new(user_params)
       if @user.save
-        redirect_to posts_path
+        redirect_to "/"
+        flash[:notice] = "welcome"
       else
         redirect_to "/users/sign_up"
       end
@@ -19,4 +25,5 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:email , :password , :password_confirmation)
     end    
+
 end

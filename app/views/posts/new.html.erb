@@ -1,14 +1,15 @@
-<h2>新增文章<h2>
+<div class="contain">
+  <div class="content">
+    <h2>新增文章<h2>
+      <%= form_for @post do |post| %>
 
-<%= form_for @post do |post| %>
+        <div>標題</div>
+        <div><%= post.text_field :title %></div>
 
-  <div>標題</div>
-  <div><%= post.text_field :title %></div>
+        <div>內容</div>
+        <div><%= post.text_area :content %></div>
 
-  <div>內容</div>
-  <div><%= post.text_area :content %></div>
-
-  <%= post.submit %>
-
-<% end %>  
-
+        <%= post.submit %>
+      <% end %>  
+  </div>
+</div>  

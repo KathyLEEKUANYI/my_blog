@@ -4,8 +4,13 @@ Rails.application.routes.draw do
   resources :posts
   resource :users , except: [:destroy , :new] do
     get :sign_up
-
+    get :sign_in
   end  
 
   root to: 'homes#index'
+
+
+  resource :sessions , only: [:create, :destroy]
+
+
 end

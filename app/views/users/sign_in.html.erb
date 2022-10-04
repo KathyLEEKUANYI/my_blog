@@ -1,0 +1,26 @@
+<div class="login-form">
+  <h2 class="title">登入</h2>
+  <div class="subtitle">
+    Please! login for continue
+  </div>
+  <%= form_with model: @user, url: sessions_path do |user| %>
+
+    <div class="form-box">
+    <%= user.label " " %>
+    <%= user.text_field :email , placeholder: "email" %>
+    </div>
+
+    <div class="form-box">
+      <%= user.label " " %>
+      <%= user.password_field :password , placeholder: "password" %>
+    </div>
+
+    <%= user.submit "Login" ,class:"button"%>
+
+  <% end %>
+
+    <p class="singup">Don't have an account? <a href="/users/sign_up">Signup</a></p>
+</div>  
+
+
+

@@ -1,4 +1,4 @@
-<h2>註冊<h2>
+
 
 <% if @user.errors.any? %>
   <ul>
@@ -8,22 +8,27 @@
   </ul>
 <% end %>      
 
-<%= form_with model: @user do |user| %>
-  <div>
-    <%= user.label :email ,"email" %>
-    <%= user.email_field :email %>
-  </div> 
+<div class="login-form">
+  <h2 class="title">註冊</h2>
+  <div class="subtitle">
+    Welcome !
+  </div>
+  <%= form_with model: @user do |user| %>
+    <div class="form-box">
+    <%= user.label " " %>
+    <%= user.text_field :email , placeholder: "email" %>
+    </div>
+    <div class="form-box">
+      <%= user.label " " %>
+      <%= user.password_field :password , placeholder: "password" %>
+    </div>
+    <div class="form-box">
+      <%= user.label " " %>
+      <%= user.password_field :password_confirmation , placeholder: "password_confirmation" %>
+    </div>
+    <%= user.submit "Create" ,class:"button"%>
+  <% end %>
+</div>  
 
-  <div>
-    <%= user.label :password ,"password" %>
-    <%= user.password_field :password %>
-  </div> 
 
-  <div>
-    <%= user.label :password_confirmation , "password_confirmation" %>
-    <%= user.password_field :password_confirmation %>
-  </div>  
 
-  <%= user.submit %>
-
-<% end %>
